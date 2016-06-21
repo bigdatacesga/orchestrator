@@ -8,6 +8,7 @@ from .decorators import restricted
 CONSUL_ENDPOINT = app.config.get('CONSUL_ENDPOINT')
 registry.connect(CONSUL_ENDPOINT)
 
+
 @api.route('/clusters/<clusterid>', methods=['PUT'])
 @restricted(role='ROLE_USER')
 def run_orquestrator(clusterid):
@@ -16,7 +17,7 @@ def run_orquestrator(clusterid):
     # FIXME maybe there's a better way of obtaining the service and version (attributes of the cluster?)
     service_str = clusterdn.split('/')[2]
     version_str = clusterdn.split('/')[3]
-    service = registry.get_service_template(service_str, version_str)
+    service = registry.get_product(service_str, version_str)
     orquestrator = service.orquestrator
 
     import os
