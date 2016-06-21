@@ -24,7 +24,11 @@ def run_orquestrator(clusterid):
     os.environ['INSTANCE'] = str(instance)
     os.environ['REGISTRY'] = app.config.get('CONSUL_ENDPOINT')
     os.environ['OP'] = "start"
+    # FIXME understand if globals or locals have something to do with how the exec behaves
+    # https://docs.python.org/3/library/functions.html#globals
+    # Just pass the same argument twice
     exec(orquestrator, globals(), globals())
+    #exec (orquestrator, locals(), locals())
 
     # os.environ['OP'] = "stop"
     # exec orquestrator
