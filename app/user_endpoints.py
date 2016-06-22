@@ -13,7 +13,7 @@ registry.connect(CONSUL_ENDPOINT)
 @restricted(role='ROLE_USER')
 def run_orquestrator(clusterid):
     clusterdn = registry.dn_from(clusterid)
-    instance = registry.get_cluster_instance(dn=clusterdn)
+    instance = registry.get_cluster(dn=clusterdn)
     # FIXME maybe there's a better way of obtaining the service and version (attributes of the cluster?)
     service_str = clusterdn.split('/')[2]
     version_str = clusterdn.split('/')[3]

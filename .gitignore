@@ -11,3 +11,4 @@ docs/_build
 .tox
 .coverage
 .idea
+.ropeproject
