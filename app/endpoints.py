@@ -1,16 +1,12 @@
-from flask import jsonify, g
+from flask import jsonify
 from . import api, app
 import registry
-from .decorators import restricted
-
-#from .configuration_registry import registry
 
 CONSUL_ENDPOINT = app.config.get('CONSUL_ENDPOINT')
 registry.connect(CONSUL_ENDPOINT)
 
 
 @api.route('/clusters/<clusterid>', methods=['PUT'])
-@restricted(role='ROLE_USER')
 def run_orquestrator(clusterid):
     clusterdn = registry.dn_from(clusterid)
     instance = registry.get_cluster(dn=clusterdn)
