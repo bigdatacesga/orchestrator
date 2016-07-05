@@ -17,6 +17,6 @@ and configures the cluster using the orquestrator from the service template
 Test with:
 
 ```
-curl -X PUT http://127.0.0.1:5000/bigdata/api/v1/clusters/instances--test--mpi--1__0--7
-curl -X PUT http://127.0.0.1:5000/bigdata/api/v1/clusters/<clusterid>
+curl -X PUT http://127.0.0.1:5000/v1/clusters/instances--test--mpi--1__0--7
+curl -X PUT http://127.0.0.1:5000/v1/clusters/<clusterid>
 ```
