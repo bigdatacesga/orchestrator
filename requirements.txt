@@ -1,5 +1,3 @@
 Flask==0.11
-kvstore
 configuration-registry
-python-keyczar
 fabric
