@@ -31,4 +31,4 @@ setup_flask_logging()
 
 
 if __name__ == '__main__':
-    application.run(port=5002)
+    application.run(port=6002)
